@@ -14,7 +14,7 @@ def test_capitilize(word, result_word):
     assert result == result_word, "ожидаемый результат не равен фактическому:"
     
 #@pytest.mark.xfail()
-@pytest.mark.parametrize( "word, result_word", [ (12345, 12345),( [], [] )]) 
+@pytest.mark.parametrize( "word, result_word", [ (12345, 12345), ( [], [] ), (None, "skypro"), (" ", "skypro")]) 
 def test_capitilize_negative(word, result_word):
     stringUtils=StringUtils()
     result=stringUtils.capitilize(word)
