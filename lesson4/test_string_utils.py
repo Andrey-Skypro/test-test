@@ -13,9 +13,8 @@ def test_capitilize(word, result_word):
     result=stringUtils.capitilize(word)
     assert result == result_word, "ожидаемый результат не равен фактическому:"
     
-@pytest.mark.xfail()
-@pytest.mark.parametrize( "word, result_word", [ ("слово", "GGлово"),("SKYPRO", "skypro"),("Sky pro","sky pro"),("SkyPro", "S"),("Skypro", "Skypro")
-,("123", "123"),("2023 Skypro 2023", "2023 skypro 2023"), ("", ""), (' ', " ")]) 
+#@pytest.mark.xfail()
+@pytest.mark.parametrize( "word, result_word", [ (12345, 12345),( [], [] )]) 
 def test_capitilize_negative(word, result_word):
     stringUtils=StringUtils()
     result=stringUtils.capitilize(word)
@@ -54,4 +53,3 @@ def test_capitalize_none_and_empty_list(word):
     with pytest.raises((TypeError, AttributeError)):
         # Ожидаем ошибку, так как None и [] - недопустимые значения для данной функции
         stringUtils.capitalize(word)
-
