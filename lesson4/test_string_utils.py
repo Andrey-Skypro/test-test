@@ -28,7 +28,7 @@ from string_utils import StringUtils
     ("слово", "Слово"),
     ("SKYPRO", "Skypro"),
     ("Sky pro", "Sky pro"),
-    ("SkyPro", "Skypro"),
+    ("SkyPro", "Skypr"),
     ("123", "123"),
     ("04 апреля 2023", "04 апреля 2023")
 ])
