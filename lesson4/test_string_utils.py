@@ -67,8 +67,6 @@ class TestStringUtils:
         result = stringUtils.trim(word)
         assert result == result_word, "ожидаемый результат не равен фактическому:"  
 
-import pytest
-from string_utils import StringUtils
 
 class TestStringUtils:
     @pytest.mark.parametrize("word, result_word", [
@@ -108,14 +106,15 @@ def contains(string: str, symbol: str) -> bool:
 
 @pytest.mark.parametrize(
     "string, symbol, expected",
-    
+
+    [
         ("SkyPro", "k", "SyPro"),
         ("SkyPro", "Pro", "Sky"),
         ("Привет, мир! Как дела?", ",", "Привет мир! Как дела?"),
         ("Тестирование", "т", "Тесирование"),
         ("123456", "5", "12346"),
         (" ", " ", ""),
-    
+    ]
 )
 def testdeletesymbol(string, symbol, expected):
     result = deletesymbol(string, symbol)
@@ -132,14 +131,14 @@ def contains(string: str, symbol: str) -> bool:
 
 @pytest.mark.parametrize(
     "string, symbol, expected",
-    
+    [
         ("SkyPro", "S", True),
         ("SkyPro", "P", False),
         ("Привет, мир!", "П", True),
-        ("Тестирование", "т", True),
+        ("Тестирование", "т", False),
         ("123456", "1", True),
         (" ", " ", True),
-    
+    ]
 )
 def teststartswith(string, symbol, expected):
     result = startswith(string, symbol)
@@ -150,14 +149,14 @@ def startswith(string: str, symbol: str) -> bool:
 
 @pytest.mark.parametrize(
     "string, symbol, expected",
-    
+    [
         ("SkyPro", "o", True),
         ("SkyPro", "y", False),
         ("Привет, мир!", "!", True),
-        ("Тестирование", "е", False),
+        ("Тестирование", "е", True),
         ("123456", "6", True),
         (" ", " ", True),
-    
+    ]
 )
 def testendwith(string, symbol, expected):
     result = endwith(string, symbol)
@@ -168,13 +167,13 @@ def endwith(string: str, symbol: str) -> bool:
 
 @pytest.mark.parametrize(
     "string, expected",
-    
+    [
         ("", True),
         (" ", True),
         ("SkyPro", False),
         (" Привет, мир!", False),
         ("123456", False),
-    
+    ]
 )
 def testisempty(string, expected):
     result = isempty(string)
